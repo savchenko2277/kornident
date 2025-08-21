@@ -1,0 +1,16 @@
+@use 'lib' as *;
+
+.btn-blue {
+	$self: &;
+
+    background-color: #49C1CD;
+    color: #fff;
+    padding: 14px 37px;
+    border-radius: 30px;
+    transition: opacity var(--trans);
+
+    &:hover {
+        opacity: 0.8;
+    }
+
+}

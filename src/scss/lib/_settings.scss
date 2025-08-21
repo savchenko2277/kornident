@@ -1,0 +1,14 @@
+@use "variables.scss" as *;
+@use "functions.scss" as *;
+
+.section-top-header {
+    padding-top: 150px;
+}
+
+.title {
+    font-weight: 700;
+}
+
+.title-48 {
+    font-size: fluid(48px, 26px);
+}

@@ -1,0 +1,43 @@
+@use 'lib' as *;
+
+.reasons {
+	$self: &;
+
+	&__container {
+
+	}
+
+	&__title {
+        margin-bottom: fluid(50px, 30px);
+	}
+
+	&__cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+	}
+
+	&__card {
+        padding: 24px;
+        border-radius: 20px;
+        background-color: #F1F1F1;
+	}
+
+	&__card-icon {
+        margin-bottom: 4px;
+        width: 60px; height: 60px;
+        object-fit: cover;
+	}
+
+	&__card-title {
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 12px;
+	}
+
+	&__card-text {
+        font-size: 16px;
+        font-weight: 500;
+	}
+
+}

@@ -1,0 +1,65 @@
+@use 'lib' as *;
+
+.title-main {
+	$self: &;
+
+    margin: 0 auto;
+    max-width: 1440px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+	&_background {
+		padding: 40px 0;
+        background-color: #C11619;
+        color: #fff;
+	}
+
+    &_background &__body {
+        &::after {
+            background: linear-gradient(to right, rgba(255,255,255,0.5), rgba(255,255,255,0));
+        }
+        &::before {
+            background: linear-gradient(to left, rgba(255,255,255,0.5), rgba(255,255,255,0));
+        }
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        position: relative;
+
+        &::after {
+            position: absolute;
+            top: 50%; left: calc(100% + 20px);
+            content: '';
+            display: block;
+            width: fluid(500px, 100px); height: 2px;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+        }
+
+        &::before {
+            position: absolute;
+            top: 50%; right: calc(100% + 20px);
+            content: '';
+            display: block;
+            width: fluid(500px, 100px); height: 2px;
+             background: linear-gradient(to left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+        }
+
+    }
+
+    &__subtitle {
+        font-weight: 500;
+        font-size: fluid(24px, 16px);
+    }
+
+	&__title {
+
+	}
+
+}

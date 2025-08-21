@@ -1,0 +1,86 @@
+@use 'lib' as *;
+
+.footer {
+	$self: &;
+
+    background-color: #C11619;
+    color: #fff;
+
+	&__container {
+        padding: 25px 0px;
+	}
+
+	&__top {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 35px;
+        margin-bottom: 125px;
+	}
+
+	&__column {
+        display: flex;
+        flex-direction: column;
+
+
+	}
+
+    &__column:nth-child(1) {
+        order: -1;
+    }
+
+    &__column:nth-child(2) {
+        order: 0;
+    }
+
+    &__column:last-child {
+        margin-left: auto;
+
+        @include media("<=md") {
+            margin-left: 0;
+        }
+    }
+
+	&__column-title {
+        padding: 6px 0px;
+        margin-bottom: 6px;
+        font-size: 18px;
+        font-weight: 700;
+	}
+
+	&__list {
+
+	}
+
+	&__list-item {
+        font-size: 14px;
+        color: rgba($color: #fff, $alpha: 0.7);
+        padding: 4px 0px;
+        transition: color var(--trans);
+        font-weight: 500;
+        text-wrap: nowrap;
+
+        &:hover {
+            color: rgba($color: #ffffff, $alpha: 1.0);
+        }
+	}
+
+	&__contact {
+        font-size: 24px;
+        font-weight: 700;
+        transition: color var(--trans);
+
+        &:hover {
+            color: rgba($color: #ffffff, $alpha: 0.8);
+        }
+	}
+
+	&__bottom {
+
+	}
+
+    &__column_contacts &__list {
+        margin-top: 30px;
+    }
+
+}

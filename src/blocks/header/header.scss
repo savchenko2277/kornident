@@ -1,0 +1,300 @@
+@use 'lib' as *;
+
+.header {
+    $self: &;
+
+    display: grid;
+    grid-template-rows: 1fr max-content;
+    transition: grid-template-rows .5s ease-in-out;
+
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+
+    &.is-scroll &__main {
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    &.is-open &__menu {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: all;
+    }
+
+    &.is-open &__burger {
+        span:nth-child(2) {
+            opacity: 0;
+        }
+
+        span:nth-child(1) {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        span:nth-child(3) {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+    }
+
+    &.is-scroll {
+        grid-template-rows: 0fr max-content;
+    }
+
+    &.is-open {
+        @include media("<=lg") {
+            grid-template-rows: 0fr max-content;
+        }
+    }
+
+    &__top {
+        overflow: hidden;
+        background-color: #F8F8F8;
+    }
+
+    &__top-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px 0px;
+    }
+
+    &__address {
+        display: flex;
+        flex-direction: column;
+        font-size: 15px;
+        font-weight: 500;
+    }
+
+    &__work-time {
+        display: flex;
+        flex-direction: column;
+        font-size: 14px;
+
+        b {
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+    }
+
+    &__button-callback {
+        color: #A00B0C;
+        text-decoration: underline;
+        font-size: 16px;
+    }
+
+    &__email {
+        font-weight: 500;
+    }
+
+    &__button {
+        font-size: 16px;
+        font-weight: 500;
+        padding: 8px 40px;
+        border-radius: 30px;
+        background-color: #A00B0C;
+        border: 1px solid #DD425F;
+        color: #fff;
+    }
+
+    &__main {
+        padding: 16px 0px;
+        background-color: #fff;
+    }
+
+    &__main-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+
+        @include media("<=lg") {
+            justify-content: start;
+            gap: 16px;
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: row;
+        gap: 24px;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        font-weight: 500;
+        width: 100%;
+
+        @include media("<=lg") {
+            background-color: rgba($color: #fff, $alpha: 0.9);
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+    }
+
+    &__list-item {
+        position: relative;
+        text-align: center;
+        text-wrap: nowrap;
+        cursor: pointer;
+    }
+
+    &__list-item_menu {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 5px;
+
+        &::after {
+            content: '';
+            display: block;
+            width: 8px; height: 5px;
+            background-image: url('./images/icons-images/arrow-down.svg');
+            background-size: contain;
+        }
+    }
+
+    &__list-item_menu:hover &__item-menu {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: all;
+    }
+
+    &__item-menu {
+        position: absolute;
+        top: 100%; left: 0;
+        background-color: rgba($color: #e0e0e0, $alpha: 0.8);
+        padding: 16px;
+        border-radius: 4px;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        transition: all var(--trans);
+
+        a {
+            transition: opacity var(--trans);
+
+            &:hover {
+                opacity: 0.5;
+            }
+        }
+    }
+
+    &__menu {
+        display: flex;
+        width: 100%;
+        transition: all var(--trans);
+
+        @include media("<=lg") {
+            position: fixed;
+            inset: 0;
+            height: 100%;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+    }
+
+    &__tel {
+        text-wrap: nowrap;
+        position: relative;
+        z-index: 100;
+        font-size: 23px;
+        color: #C11619;
+
+        img {
+            display: none;
+        }
+
+        @include media("<=lg") {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: auto;
+
+            span {
+                display: none;
+            }
+
+            img {
+                display: block;
+            }
+        }
+    }
+
+    &__breakpoint-hidden {
+        @include media("<=md") {
+            display: none;
+        }
+    }
+
+    &__burger {
+        width: 24px;
+        height: 24px;
+        position: relative;
+        z-index: 100;
+
+        @include media(">lg") {
+            display: none;
+        }
+
+        span {
+            display: block;
+            background-color: #DD425F;
+            height: 2px;
+            width: 100%;
+            border-radius: 1px;
+            transition: all var(--trans);
+        }
+
+        span {
+            position: absolute;
+            width: 100%;
+            left: 50%;
+        }
+
+        span:nth-child(1) {
+            top: 0;
+            transform: translateX(-50%);
+        }
+
+        span:nth-child(2) {
+            top: 50%;
+            transform: translateY(-50%) translateX(-50%);
+        }
+
+        span:nth-child(3) {
+            top: calc(100% - 2px);
+            transform: translateX(-50%);
+        }
+
+    }
+
+    &__logo {
+        height: 40px;
+        position: relative;
+        z-index: 100;
+
+        img {
+            height: 100%;
+            object-fit: contain;
+        }
+
+        @include media("<=xs") {
+            height: 30px;
+        }
+    }
+
+}

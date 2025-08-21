@@ -14,7 +14,7 @@
 );
 
 @use "../blocks/**/*.scss";
-// @use "../../node_modules/swiper/swiper";
+@use "../../node_modules/swiper/swiper.css";
 
 // Browsersync mark
 #__bs_notify__ { 
@@ -23,10 +23,12 @@
 }
 
 // Include breakpoints badge
-body { @include screen-media(); }
+// body { @include screen-media(); }
 
 
-// @include font-face("Montserrat-ExtraLight", "MR", 200);
+@include font-face("Raleway-Regular", "Raleway", 400);
+@include font-face("Raleway-Medium", "Raleway", 500);
+@include font-face("Raleway-Bold", "Raleway", 700);
 // @include font-face("Montserrat-ExtraBold", "MR", 800);
 // @include font-face("Montserrat-SemiBold", "MR", 600);
 // @include font-face("Montserrat-Regular", "MR", 400);
@@ -42,7 +44,7 @@ body, html {
 	background-color: var(--background);
 	font-size: var(--size);
 	color: var(--text);
-	font-family: sans-serif;
+	font-family: "Raleway", sans-serif;
 	line-height: 1.2;
 	font-weight: 400;
 	display: flex;
@@ -59,7 +61,6 @@ body, html {
 	display: none;
 }
 
-p { margin-bottom: 10px; }
 em { font-style: italic; }
 strong { font-weight: bold; }
 
