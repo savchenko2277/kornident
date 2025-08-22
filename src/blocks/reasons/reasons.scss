@@ -3,6 +3,9 @@
 .reasons {
 	$self: &;
 
+    overflow: hidden;
+    padding: 30px 0px 85px 0px;
+
 	&__container {
 
 	}
@@ -11,16 +14,26 @@
         margin-bottom: fluid(50px, 30px);
 	}
 
-	&__cards {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
+    &__cards.swiper {
+        overflow: visible;
+    }
+
+	&__cards.swiper .swiper-wrapper {
+        @include media(">sm") {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
 	}
 
-	&__card {
+	&__card.swiper-slide {
         padding: 24px;
         border-radius: 20px;
         background-color: #F1F1F1;
+
+        @include media("<=sm") {
+            height: auto;
+        }
 	}
 
 	&__card-icon {

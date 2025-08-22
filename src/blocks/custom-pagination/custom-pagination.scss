@@ -1,0 +1,25 @@
+@use 'lib' as *;
+
+.custom-pagination {
+	$self: &;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    .swiper-pagination-bullet {
+        height: 4px;
+        width: 100%;
+        max-width: 32px;
+        background-color: #C7CFD8;
+        transition: background-color var(--trans);
+        display: block;
+        border-radius: 8px;
+
+        &.swiper-pagination-bullet-active {
+            background-color: #DD425F;
+        }
+    }
+}

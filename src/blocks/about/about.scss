@@ -1,0 +1,26 @@
+@use 'lib' as *;
+
+.about {
+	$self: &;
+
+    padding: fluid(100px, 40px) 0px;
+
+	&__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+	}
+
+	&__title {
+        font-size: fluid(36px, 20px);
+        text-align: center;
+        margin-bottom: fluid(35px, 15px);
+	}
+
+	&__text {
+        display: flex;
+        flex-direction: column;
+        font-size: fluid(20px, 15px);
+	}
+
+}

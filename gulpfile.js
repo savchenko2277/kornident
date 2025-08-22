@@ -25,7 +25,10 @@ let webconf = {
 		}]
 	},
 	mode: isDev ? 'development' : 'production',
-	devtool: isDev ? 'eval-source-map' : false
+	devtool: isDev ? 'eval-source-map' : false,
+    optimization: {
+		minimize: false   // 🚀 отключает минификацию даже в production
+	}
 };
 
 let pth = {
@@ -131,11 +134,11 @@ function styles() {
 			cascade: false, 
 			grid: true 
 		}))
-		.pipe($.if(isProd, $.groupCssMediaQueries()))
-		.pipe($.if(isProd, $.cleanCss({
-			compatibility: { properties: { zeroUnits: false }},
-			level: 2
-		})))
+		// .pipe($.if(isProd, $.groupCssMediaQueries()))
+		// .pipe($.if(isProd, $.cleanCss({
+		// 	compatibility: { properties: { zeroUnits: false }},
+		// 	level: 2
+		// })))
 		.pipe($.if(isDev, $.sourcemaps.write()))
 		.pipe(gulp.dest(pth.pbl.css))
 		.pipe($.if(isSync, $.browserSync.stream()))

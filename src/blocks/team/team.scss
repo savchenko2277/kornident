@@ -1,0 +1,99 @@
+@use 'lib' as *;
+
+.team {
+    $self: &;
+
+    padding-bottom: fluid(60px, 30px);
+    overflow: hidden;
+
+    &__container {}
+
+    &__title {
+        margin-bottom: fluid(50px, 30px);
+    }
+
+    &__cards.swiper {
+        overflow: visible;
+    }
+
+    &__card.swiper-slide {
+        display: grid;
+        grid-template-columns: 382px 1fr;
+        gap: 44px;
+        padding: 24px;
+        background-color: #fff;
+        box-shadow: 0px 4px 25px 0px #0000001A;
+        border-radius: 10px;
+
+        @include media("<=md") {
+            grid-template-columns: 100%;
+            gap: 32px;
+        }
+    }
+
+    &__card-img {
+        border-radius: 10px;
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+    }
+
+    &__card-info {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    &__card-name {
+        font-size: 24px;
+        font-weight: 700;
+        color: #C11619;
+    }
+
+    &__card-job {
+        display: flex;
+        flex-direction: column;
+        font-weight: 500;
+
+        b {
+            font-size: 18px;
+            color: #C11619;
+        }
+    }
+
+    &__card-list {
+        display: flex;
+        flex-direction: column;
+        font-weight: 500;
+
+        b {
+            font-size: 18px;
+            color: #C11619;
+            margin-bottom: 5px;
+        }
+
+        ul {
+            padding-left: 24px;
+        }
+
+        ul li {
+            list-style: disc;
+            line-height: 170%;
+        }
+    }
+
+    &__card-buttons {
+        height: fit-content;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-top: auto;
+        flex-wrap: wrap;
+    }
+
+    &__card-button.btn-red {
+        padding: 14px 20px;
+        color: #C11619;
+    }
+
+}

@@ -1,0 +1,71 @@
+@use 'lib' as *;
+
+.articles {
+	$self: &;
+
+    padding: fluid(40px, 20px) 0px;
+    background-color: #F8F8F8;
+
+	&__container {
+
+	}
+
+	&__title {
+
+	}
+
+	&__items {
+
+	}
+
+	&__item {
+        display: grid;
+        grid-template-rows: max-content 0fr;
+        transition: grid-template-rows var(--trans);
+
+        &.active {
+            grid-template-rows: max-content 1fr;
+        }
+	}
+
+    &__item.active &__item-text {
+        padding-bottom: 25px;
+    }
+
+    &__item.active &__item-head::after {
+        transform: rotate(45deg);
+    }
+
+	&__item-head {
+        padding: 25px 30px;
+        font-size: fluid(20px, 14px);
+        font-weight: 700;
+        cursor: pointer;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+
+        &::after {
+            content: '';
+            display: block;
+            width: 40px; height: 40px;
+            background: url('./images/icons-images/plus.svg') no-repeat center / contain;
+            transition: transform var(--trans);
+            flex: 0 0 auto;
+        }
+
+        @include media("<=xs") {
+            padding: 15px 30px;
+        }
+	}
+
+	&__item-text {
+        overflow: hidden;
+        padding: 0px 30px;
+        transition: padding var(--trans);
+        font-size: fluid(18px, 13px);
+	}
+
+}

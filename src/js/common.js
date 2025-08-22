@@ -1,4 +1,5 @@
 import { throttle } from "./libs/utils";
+import Inputmask from "inputmask";
 // import { driveAdaptive } from "./libs/driveAdaptive.js";
 import "./polyfills.js";
 import "./blocks.js";
@@ -38,3 +39,13 @@ updateVH();
 		xxxxlg: 1920
 	}
 }); */
+
+document.querySelectorAll("input[type='tel']").forEach(input => {
+    Inputmask({
+        mask: "+7 (999) 999-99-99",
+        showMaskOnHover: false,
+        showMaskOnFocus: true,
+        clearIncomplete: true,
+        jitMasking: true
+    }).mask(input);
+});

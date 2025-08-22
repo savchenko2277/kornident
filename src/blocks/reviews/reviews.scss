@@ -1,0 +1,16 @@
+@use 'lib' as *;
+
+.reviews {
+	$self: &;
+
+    padding: fluid(60px, 30px) 0;
+
+	&__container {
+
+	}
+
+	&__title {
+        margin-bottom: fluid(80px, 30px);
+	}
+
+}

@@ -1,0 +1,91 @@
+@use 'lib' as *;
+
+.map {
+	$self: &;
+
+    padding: fluid(50px, 25px) 0;
+
+    &__body {
+        display: grid;
+        grid-template-columns: minmax(auto, 464px) 1fr;
+        gap: 20px;
+
+        @include media("<=md") {
+            grid-template-columns: 100%;
+        }
+    }
+
+	&__container {
+
+	}
+
+	&__contacts {
+        background-color: #F8F8F8;
+        padding: 40px 24px 24px 24px;
+        border-radius: 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 16px;
+        font-size: 16px;
+	}
+
+    &__contacts-title {
+        font-size: 24px;
+        font-weight: 700;
+    }
+
+	&__title {
+        margin-bottom: 50px;
+	}
+
+	&__address {
+        display: flex;
+        flex-direction: column;
+        font-size: 20px;
+	}
+
+	&__mobile {
+        display: flex;
+        flex-direction: column;
+
+        a {
+            font-size: 23px;
+            color: #C11619;
+            font-weight: 500;
+        }
+	}
+
+	&__buttons {
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+        align-items: center;
+	}
+
+	&__button-blue {
+        padding: 10px 17px;
+        background-color: #49C1CD;
+        border-radius: 30px;
+        font-weight: 500;
+        color: #fff;
+	}
+
+	&__button-red {
+        color: #C11619;
+        font-weight: 500;
+        padding: 12px 15px;
+	}
+
+	&__frame {
+        border-radius: 16px;
+        overflow: hidden;
+
+        @include media("<=md") {
+            order: -1;
+            width: 100%;
+            aspect-ratio: 360 / 220;
+        }
+	}
+
+}
